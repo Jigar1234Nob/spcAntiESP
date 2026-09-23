@@ -1,0 +1,28 @@
+# spcAntiESP config
+
+noclip-detection:
+  enabled: true
+  # How many consecutive "inside a solid block" ticks before flagging.
+  # Kept loose to avoid false positives from lag/teleports.
+  violation-threshold: 6
+  # Ticks between checks per player (this, not per-tick loops, is what
+  # keeps this at zero measurable TPS cost on large player counts).
+  check-interval-ticks: 4
+  action: KICK   # ALERT_STAFF, KICK, or BOTH
+  kick-message: "&cDisconnected: illegal movement detected (noclip)."
+  exempt-gamemodes:
+    - CREATIVE
+    - SPECTATOR
+
+freecam-detection:
+  enabled: true
+  # Flags a "detached camera" pattern: player entity stops moving/rotating
+  # server-side while still receiving chunk data for an area no longer
+  # near their last confirmed position (common with freecam mods that
+  # only move the client-side camera, not the entity).
+  max-stale-position-seconds: 8
+  action: ALERT_STAFF
+
+alerts:
+  broadcast-to-permission: spcantiesp.admin
+  prefix: "&8[&cspcAntiESP&8] &r"

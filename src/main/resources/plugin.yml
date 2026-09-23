@@ -1,0 +1,22 @@
+name: spcAntiESP
+version: 1.0.0
+main: com.spc.antiesp.SpcAntiESP
+api-version: '26.1'
+author: SPC
+description: >
+  Blocks freecam/noclip ESP exploits and relies on Paper's zero-cost
+  engine-level anti-xray to hide block/container data until legitimately
+  observed. Fully async movement checks, TPS-safe.
+
+commands:
+  spcantiesp:
+    description: Reload / status for spcAntiESP
+    usage: /spcantiesp <reload|status>
+    permission: spcantiesp.admin
+
+permissions:
+  spcantiesp.admin:
+    default: op
+  spcantiesp.bypass:
+    description: Bypass freecam/noclip detection (trusted staff only)
+    default: op
